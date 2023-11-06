@@ -1,7 +1,16 @@
-import type { Config } from 'jest'
+import preset from 'ts-jest/presets/index.js'
+import type { JestConfigWithTsJest  } from 'ts-jest'
 
 export default {
-  extensionsToTreatAsEsm: ['.ts'],
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-} satisfies Config
+  injectGlobals: true,
+  ...preset.defaultsESM,
+  transform: {
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        tsconfig: './tsconfig.json',
+        useESM: true,
+      },
+    ],
+  },
+} satisfies JestConfigWithTsJest

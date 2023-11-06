@@ -4,6 +4,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "verbatimModuleSyntax": false,
-    "moduleResolution": "Bundler"
+    "moduleResolution": "Bundler",
+    "types": ["@types/jest"]
   }
 }
